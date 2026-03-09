@@ -1,13 +1,42 @@
-[11:32:07.564] [INFO] [36mInitializing Storybook[39m
-[11:32:07.666] [DEBUG] Getting package.json info for /Users/yingyuchen/Documents/cwgit/storybook-test/package.json...
-[11:32:07.666] [DEBUG] Getting CLI versions from NPM for storybook...
-[11:32:07.666] [DEBUG] Executing command: npm info storybook version
-[11:32:08.002] [INFO] Adding Storybook version 10.2.16 to your project
-[11:32:08.003] [ERROR] Unable to initialize Storybook in this directory.
+[11:49:22.049] [INFO] storybook v10.2.16
+[11:49:22.111] [ERROR] [38;2;241;97;97mSB_CORE-SERVER_0007 (MainFileEvaluationError): Storybook couldn't evaluate your [33m.storybook/main.cjs[39m file.
 
-Storybook couldn't detect a supported framework or configuration for your project. Make sure you're inside a framework project (e.g., React, Vue, Svelte, Angular, Next.js) and that its dependencies are installed.
+Original error:
+[37m/.storybook/main.cjs:17
+export default config;
+^^^^^^
 
-Tips:
-- Run init in an empty directory or create a new framework app first.
-- If this directory contains unrelated files, try a new directory for Storybook.
-[11:32:08.005] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
+SyntaxError: Unexpected token 'export'
+    at wrapSafe (node:internal/modules/cjs/loader:1743:18)
+    at Module._compile (node:internal/modules/cjs/loader:1786:20)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:328:3)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:233:7)
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)[39m[39m
+    at loadMainConfig (file://./node_modules/storybook/dist/_node-chunks/chunk-UXMBIWPQ.js:11709:11)
+    at async buildDevStandalone (file://./node_modules/storybook/dist/core-server/index.js:7647:16)
+    at async withTelemetry (file://./node_modules/storybook/dist/_node-chunks/chunk-CSGMAQQ4.js:218:12)
+    at async dev (file://./node_modules/storybook/dist/bin/core.js:2734:3)
+    at async _Command.<anonymous> (file://./node_modules/storybook/dist/bin/core.js:2804:92)
+[11:49:22.114] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[11:49:22.115] [WARN]   Failed to load preset: "/Users/yingyuchen/Documents/cwgit/storybook-test/.storybook/main.cjs"
+[11:49:22.115] [ERROR] ./.storybook/main.cjs:17
+export default config;
+^^^^^^
+
+[38;2;241;97;97mSyntaxError: Unexpected token 'export'[39m
+    at wrapSafe (node:internal/modules/cjs/loader:1743:18)
+    at Module._compile (node:internal/modules/cjs/loader:1786:20)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:328:3)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:233:7)
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)

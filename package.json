@@ -1,14 +1,27 @@
 {
   "devDependencies": {
-    "chromatic": "^15.2.0"
+    "@chromatic-com/storybook": "^5.0.1",
+    "@storybook/addon-a11y": "^10.2.16",
+    "@storybook/addon-designs": "^11.1.2",
+    "@storybook/addon-docs": "^10.2.16",
+    "@storybook/addon-vitest": "^10.2.16",
+    "@storybook/html-vite": "^10.2.16",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
+    "chromatic": "^15.2.0",
+    "playwright": "^1.58.2",
+    "storybook": "^10.2.16",
+    "vitest": "^4.0.18"
   },
   "name": "storybook-test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_ba9b65f49407807"
   },
   "repository": {
     "type": "git",
@@ -17,7 +30,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/yingyuchen32/storybook-test/issues"
   },
