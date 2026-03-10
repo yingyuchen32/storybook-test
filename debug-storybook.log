@@ -1,42 +1,33 @@
-[11:49:22.049] [INFO] storybook v10.2.16
-[11:49:22.111] [ERROR] [38;2;241;97;97mSB_CORE-SERVER_0007 (MainFileEvaluationError): Storybook couldn't evaluate your [33m.storybook/main.cjs[39m file.
+[15:36:04.179] [INFO] storybook v10.2.16
+[15:36:05.258] [DEBUG] Getting package.json info for /Users/yingyuchen/Documents/cwgit/storybook-test/package.json...
+[15:36:05.862] [DEBUG] Serving static files from [36mnode_modules/@chromatic-com/storybook/assets[39m at [36m/addon-visual-tests-assets[39m
+[15:36:05.862] [INFO] Starting...
+[15:36:06.032] [DEBUG] Starting preview..
+[15:36:06.035] [WARN] 🚨 Unable to index ./stories/Button.stories.js:
+  MultipleMetaError: CSF: multiple meta objects /Users/yingyuchen/Documents/cwgit/storybook-test/stories/Button.stories.js (line 57, col 13)
 
-Original error:
-[37m/.storybook/main.cjs:17
-export default config;
-^^^^^^
-
-SyntaxError: Unexpected token 'export'
-    at wrapSafe (node:internal/modules/cjs/loader:1743:18)
-    at Module._compile (node:internal/modules/cjs/loader:1786:20)
-    at Object..js (node:internal/modules/cjs/loader:1943:10)
-    at Module.load (node:internal/modules/cjs/loader:1533:32)
-    at Module._load (node:internal/modules/cjs/loader:1335:12)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
-    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:328:3)
-    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:233:7)
-    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
-    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)[39m[39m
-    at loadMainConfig (file://./node_modules/storybook/dist/_node-chunks/chunk-UXMBIWPQ.js:11709:11)
-    at async buildDevStandalone (file://./node_modules/storybook/dist/core-server/index.js:7647:16)
+More info: https://storybook.js.org/docs/writing-stories?ref=error#default-export
+    at CsfFile._parseMeta (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-EGOKQFFV.js:206:13)
+    at enter (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-EGOKQFFV.js:282:55)
+    at NodePath._call (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31811:22)
+    at NodePath.call (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31801:22)
+    at NodePath.visit (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31834:38)
+    at TraversalContext.visitQueue (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31720:49)
+    at TraversalContext.visitMultiple (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31705:21)
+    at TraversalContext.visit (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31734:52)
+    at traverseNode (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31759:61)
+    at NodePath.visit (file:///Users/yingyuchen/Documents/cwgit/storybook-test/node_modules/storybook/dist/_node-chunks/chunk-JAX4U445.js:31834:224)
+[15:36:06.041] [ERROR] Failed to build the preview
+[15:36:06.042] [ERROR] Error: Unable to index ./stories/Button.stories.js
+    at _StoryIndexGenerator.getIndexAndStats (file://./node_modules/storybook/dist/core-server/index.js:6087:15)
+    at async _StoryIndexGenerator.getIndex (file://./node_modules/storybook/dist/core-server/index.js:6076:13)
+    at async getOptimizeDeps (file://./node_modules/@storybook/builder-vite/dist/index.js:1857:15)
+    at async createViteServer (file://./node_modules/@storybook/builder-vite/dist/index.js:1884:19)
+    at async Module.start (file://./node_modules/@storybook/builder-vite/dist/index.js:1912:17)
+    at async storybookDevServer (file://./node_modules/storybook/dist/core-server/index.js:7295:83)
+    at async buildOrThrow (file://./node_modules/storybook/dist/core-server/index.js:4506:12)
+    at async buildDevStandalone (file://./node_modules/storybook/dist/core-server/index.js:7710:41)
     at async withTelemetry (file://./node_modules/storybook/dist/_node-chunks/chunk-CSGMAQQ4.js:218:12)
     at async dev (file://./node_modules/storybook/dist/bin/core.js:2734:3)
-    at async _Command.<anonymous> (file://./node_modules/storybook/dist/bin/core.js:2804:92)
-[11:49:22.114] [WARN] Broken build, fix the error above.
+[15:36:06.046] [WARN] Broken build, fix the error above.
 You may need to refresh the browser.
-[11:49:22.115] [WARN]   Failed to load preset: "/Users/yingyuchen/Documents/cwgit/storybook-test/.storybook/main.cjs"
-[11:49:22.115] [ERROR] ./.storybook/main.cjs:17
-export default config;
-^^^^^^
-
-[38;2;241;97;97mSyntaxError: Unexpected token 'export'[39m
-    at wrapSafe (node:internal/modules/cjs/loader:1743:18)
-    at Module._compile (node:internal/modules/cjs/loader:1786:20)
-    at Object..js (node:internal/modules/cjs/loader:1943:10)
-    at Module.load (node:internal/modules/cjs/loader:1533:32)
-    at Module._load (node:internal/modules/cjs/loader:1335:12)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
-    at loadCJSModuleWithModuleLoad (node:internal/modules/esm/translators:328:3)
-    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:233:7)
-    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
-    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
