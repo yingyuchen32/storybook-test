@@ -90,6 +90,14 @@ export default {
     hovered: false,
     onClick: fn(),
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Button 預設的樣式為 color 當字的顏色，bgColor 為背景色。如果 bgColor 是空置，自動選黑或白當背景色。如果沒有設定 hoverColor 的話，color 會拿來當 hover 的背景色，自動把字變黑或白。如果有設定 hoverColor 就會拿這個顏色來算 hover 的顏色。',
+      },
+    },
+  },
 };
 
 export const Solid = {

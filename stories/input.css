@@ -1,5 +1,6 @@
 :root {
-  --input-border-color: #7b8a99;
+  --space-4xs: 8px;
+  --grey-6: #6b7780;
   --input-label-color: #272727;
   --input-placeholder-color: #9f9f9f;
   --input-background-color: #ffffff;
@@ -9,7 +10,7 @@
 .storybook-input {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
+  gap: var(--space-4xs, 8px);
   color: var(--input-color, var(--input-label-color, #272727));
   font-family: "Noto Sans TC";
 }
@@ -25,7 +26,7 @@
 .storybook-input__field {
   min-width: 212px;
   padding: 10px 14px;
-  border: 2px solid var(--input-color, var(--input-border-color, #7b8a99));
+  border: 1px solid var(--grey-6, #6B7780);
   background: var(--input-background-color, #ffffff);
   color: var(--input-color, var(--input-label-color, #272727));
   font-family: "Noto Sans TC";
@@ -37,7 +38,12 @@
 }
 
 .storybook-input__field::placeholder {
-  color: var(--input-placeholder-color, #9f9f9f);
+  color: var(--grey-6, #6B7780);
+  font-family: "Noto Sans TC";
+  font-size: var(--font-size-base, 16px);
+  font-style: normal;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: normal;
 }
 
 .storybook-input__field:focus-visible {
