@@ -2,11 +2,8 @@ import { fn } from 'storybook/test';
 
 import { createButton } from './Button';
 
-const designParameters = (url) => ({
-  design: {
-    type: 'figma',
-    url,
-  },
+const designParameters = (...designs) => ({
+  design: designs,
 });
 
 export default {
@@ -14,111 +11,125 @@ export default {
   tags: ['autodocs'],
   render: (args) => createButton(args),
   argTypes: {
-    label: { control: 'text' },
-    onClick: { action: 'onClick' },
-    tone: {
-      control: { type: 'select' },
-      options: ['black', 'red'],
+    label: {
+      control: 'text',
+      table: { disable: true },
     },
-    disabled: { control: 'boolean' },
-    hovered: { control: 'boolean' },
+    onClick: {
+      action: 'onClick',
+      table: { disable: true },
+    },
+    color: {
+      control: 'color',
+      description: 'Primary color source. Text and border use this value, and other colors fall back from it.',
+      table: {
+        defaultValue: { summary: '#d60c18' },
+        type: { summary: 'color' },
+      },
+    },
+    hoverColor: {
+      control: 'color',
+      description: 'Optional hover background color. Empty links to color.',
+      table: {
+        defaultValue: { summary: '' },
+        type: { summary: 'color' },
+      },
+    },
+    bgColor: {
+      control: 'color',
+      description: 'Optional background color. Empty links to an auto black/white surface derived from color.',
+      table: {
+        defaultValue: { summary: '' },
+        type: { summary: 'color' },
+      },
+    },
+    props: {
+      control: 'object',
+      description: 'Additional attributes to apply to the button element.',
+      table: {
+        defaultValue: { summary: '{}' },
+        type: { summary: 'object' },
+      },
+    },
+    style: {
+      control: 'text',
+      description: 'Inline CSS text appended to the button.',
+      table: {
+        defaultValue: { summary: '' },
+        type: { summary: 'string' },
+      },
+    },
+    hovered: {
+      control: 'boolean',
+      table: { disable: true },
+    },
   },
   args: {
     label: '展開更多',
-    tone: 'black',
-    disabled: false,
+    color: '#d60c18',
+    hoverColor: '',
+    bgColor: '',
+    props: {},
+    style: '',
     hovered: false,
     onClick: fn(),
   },
 };
 
-export const BlackOutline = {
+export const Outline = {
   args: {
-    tone: 'black',
+    color: '#272727',
+    props: {},
   },
   parameters: designParameters(
-    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-4'
+    {
+      name: 'Black',
+      type: 'figma',
+      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-4',
+    },
+    {
+      name: 'Red',
+      type: 'figma',
+      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=36-103&t=tZGs67Qdi1RDN1pn-4',
+    }
   ),
 };
 
-export const BlackHover = {
+export const Hover = {
   args: {
-    tone: 'black',
+    color: '#272727',
     hovered: true,
+    props: {},
   },
   parameters: designParameters(
-    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1174&t=tZGs67Qdi1RDN1pn-4'
+    {
+      name: 'Black',
+      type: 'figma',
+      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1174&t=tZGs67Qdi1RDN1pn-4',
+    },
+    {
+      name: 'Red',
+      type: 'figma',
+      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1176&t=tZGs67Qdi1RDN1pn-4',
+    }
   ),
 };
 
-export const BlackDisabled = {
+export const Disabled = {
   args: {
-    tone: 'black',
-    disabled: true,
+    color: '#272727',
+    props: { disabled: true },
   },
   parameters: designParameters(
-    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9949&t=tZGs67Qdi1RDN1pn-4'
+    {
+      name: 'Black',
+      type: 'figma',
+      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9949&t=tZGs67Qdi1RDN1pn-4',
+    },
+    {
+      name: 'Red',
+      type: 'figma',
+      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9953&t=tZGs67Qdi1RDN1pn-4',
+    }
   ),
-};
-
-export const RedOutline = {
-  args: {
-    tone: 'red',
-  },
-  parameters: designParameters(
-    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=36-103&t=tZGs67Qdi1RDN1pn-4'
-  ),
-};
-
-export const RedHover = {
-  args: {
-    tone: 'red',
-    hovered: true,
-  },
-  parameters: designParameters(
-    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1176&t=tZGs67Qdi1RDN1pn-4'
-  ),
-};
-
-export const RedDisabled = {
-  args: {
-    tone: 'red',
-    disabled: true,
-  },
-  parameters: designParameters(
-    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9953&t=tZGs67Qdi1RDN1pn-4'
-  ),
-};
-
-export const ReferenceRow = {
-  parameters: {
-    controls: { disable: true },
-  },
-  render: () => {
-    const container = document.createElement('div');
-    container.style.display = 'flex';
-    container.style.flexWrap = 'wrap';
-    container.style.gap = '40px';
-    container.style.alignItems = 'center';
-    container.style.padding = '24px 0';
-
-    [
-      { tone: 'black' },
-      { tone: 'black', hovered: true },
-      { tone: 'black', disabled: true },
-      { tone: 'red' },
-      { tone: 'red', hovered: true },
-      { tone: 'red', disabled: true },
-    ].forEach((args) => {
-      container.appendChild(
-        createButton({
-          label: '展開更多',
-          onClick: fn(),
-          ...args,
-        })
-      );
-    });
-
-    return container;
-  },
 };
