@@ -6,6 +6,13 @@ const figmaUrl =
   import.meta.env?.STORYBOOK_BUTTON_FIGMA_URL ??
   'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-1';
 
+const designParameters = {
+  design: {
+    type: 'figma',
+    url: figmaUrl,
+  },
+};
+
 export default {
   title: 'Example/Button',
   tags: ['autodocs'],
@@ -20,12 +27,6 @@ export default {
     disabled: { control: 'boolean' },
     hovered: { control: 'boolean' },
   },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaUrl,
-    },
-  },
   args: {
     label: '展開更多',
     tone: 'neutral',
@@ -39,6 +40,7 @@ export const NeutralOutline = {
   args: {
     tone: 'neutral',
   },
+  parameters: designParameters,
 };
 
 export const NeutralHover = {
@@ -46,6 +48,7 @@ export const NeutralHover = {
     tone: 'neutral',
     hovered: true,
   },
+  parameters: designParameters,
 };
 
 export const NeutralDisabled = {
@@ -53,12 +56,14 @@ export const NeutralDisabled = {
     tone: 'neutral',
     disabled: true,
   },
+  parameters: designParameters,
 };
 
 export const DangerOutline = {
   args: {
     tone: 'danger',
   },
+  parameters: designParameters,
 };
 
 export const DangerHover = {
@@ -66,6 +71,7 @@ export const DangerHover = {
     tone: 'danger',
     hovered: true,
   },
+  parameters: designParameters,
 };
 
 export const DangerDisabled = {
@@ -73,6 +79,7 @@ export const DangerDisabled = {
     tone: 'danger',
     disabled: true,
   },
+  parameters: designParameters,
 };
 
 export const ReferenceRow = {

@@ -19,9 +19,9 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "storybook": "STORYBOOK_PROJECT_ROOT=$PWD storybook dev -p 6006",
-    "build-storybook": "STORYBOOK_PROJECT_ROOT=$PWD storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_ba9b65f49407807"
+    "storybook": "PATH=$HOME/.local/n/bin:$PATH STORYBOOK_PROJECT_ROOT=$PWD storybook dev -p 6006",
+    "build-storybook": "PATH=$HOME/.local/n/bin:$PATH STORYBOOK_PROJECT_ROOT=$PWD storybook build",
+    "chromatic": "PATH=$HOME/.local/n/bin:$PATH npx chromatic --project-token=chpt_ba9b65f49407807"
   },
   "repository": {
     "type": "git",
