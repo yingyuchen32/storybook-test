@@ -4,7 +4,7 @@ import { createButton } from './Button';
 
 const figmaUrl =
   import.meta.env?.STORYBOOK_BUTTON_FIGMA_URL ??
-  'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-1';
+  'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-89&t=tZGs67Qdi1RDN1pn-4';
 
 const designParameters = {
   design: {
