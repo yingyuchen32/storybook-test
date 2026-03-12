@@ -1,12 +1,11 @@
 import { expect, userEvent, within } from 'storybook/test';
 
-import { createPage } from './Page';
+import Page from './Page.svelte';
 
 export default {
   title: 'Example/Page',
-  render: () => createPage(),
+  component: Page,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen',
   },
 };

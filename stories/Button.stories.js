@@ -1,6 +1,6 @@
 import { fn } from 'storybook/test';
 
-import { createButton } from './Button';
+import Button from './Button.svelte';
 
 const designParameters = (url) => ({
   design: {
@@ -12,7 +12,7 @@ const designParameters = (url) => ({
 export default {
   title: 'Example/Button',
   tags: ['autodocs'],
-  render: (args) => createButton(args),
+  component: Button,
   argTypes: {
     label: {
       control: 'text',

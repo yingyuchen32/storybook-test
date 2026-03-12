@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const configDir = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(configDir, '..');
 
-/** @type { import('@storybook/html-vite').StorybookConfig } */
+/** @type { import('@storybook/svelte-vite').StorybookConfig } */
 const config = {
   "stories": [
     "../stories/**/*.mdx",
@@ -18,7 +18,7 @@ const config = {
     "@storybook/addon-docs",
     "@storybook/addon-designs"
   ],
-  "framework": "@storybook/html-vite",
+  "framework": "@storybook/svelte-vite",
   async viteFinal(existingConfig) {
     return {
       ...existingConfig,
