@@ -21,7 +21,7 @@ export default {
     },
     color: {
       control: 'color',
-      description: 'Primary color source. Text and border use this value, and other colors fall back from it.',
+      description: 'Primary color source. Border and text use this value, and hover background falls back to it.',
       table: {
         defaultValue: { summary: '#d60c18' },
         type: { summary: 'color' },
@@ -37,7 +37,7 @@ export default {
     },
     bgColor: {
       control: 'color',
-      description: 'Optional background color. Empty links to an auto black/white surface derived from color.',
+      description: 'Optional default background color. Empty uses white.',
       table: {
         defaultValue: { summary: '' },
         type: { summary: 'color' },

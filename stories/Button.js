@@ -87,11 +87,6 @@ const pickReadableText = (background) =>
     ? '#000000'
     : '#ffffff';
 
-const pickNeutralSurface = (foreground) =>
-  getContrastRatio(foreground, '#ffffff') >= getContrastRatio(foreground, '#000000')
-    ? '#ffffff'
-    : '#000000';
-
 const resolveButtonColors = ({ color, hoverColor, bgColor }) => {
   const normalizedBgColor = normalizeHex(bgColor);
   const linkedColor =
@@ -100,10 +95,11 @@ const resolveButtonColors = ({ color, hoverColor, bgColor }) => {
     (normalizedBgColor ? pickReadableText(normalizedBgColor) : null) ||
     '#d60c18';
   const linkedHoverColor = normalizeHex(hoverColor) || linkedColor;
-  const linkedBgColor = normalizedBgColor || pickNeutralSurface(linkedColor);
+  const linkedBgColor = normalizedBgColor || '#ffffff';
 
   return {
-    color: linkedColor,
+    borderColor: linkedColor,
+    textColor: linkedColor,
     hoverColor: linkedHoverColor,
     bgColor: linkedBgColor,
   };
@@ -153,9 +149,10 @@ export const createButton = ({
 }) => {
   const btn = document.createElement('button');
   const resolvedColors = resolveButtonColors({ color, hoverColor, bgColor });
-  const disabledTextColor = mix(resolvedColors.color, resolvedColors.bgColor, 0.58) || resolvedColors.color;
+  const disabledTextColor =
+    mix(resolvedColors.textColor, resolvedColors.bgColor, 0.58) || resolvedColors.textColor;
   const disabledBorderColor =
-    mix(resolvedColors.color, resolvedColors.bgColor, 0.58) || resolvedColors.color;
+    mix(resolvedColors.borderColor, resolvedColors.bgColor, 0.58) || resolvedColors.borderColor;
   const disabledBgColor = mix(resolvedColors.bgColor, '#ffffff', 0.2) || resolvedColors.bgColor;
 
   btn.type = 'button';
@@ -163,7 +160,8 @@ export const createButton = ({
   btn.dataset.hovered = hovered ? 'true' : 'false';
   btn.className = 'storybook-button';
 
-  btn.style.setProperty('--button-color', resolvedColors.color);
+  btn.style.setProperty('--button-border-color', resolvedColors.borderColor);
+  btn.style.setProperty('--button-text-color', resolvedColors.textColor);
   btn.style.setProperty('--button-background-color', resolvedColors.bgColor);
   btn.style.setProperty('--button-hover-background-color', resolvedColors.hoverColor);
   btn.style.setProperty('--button-hover-color', pickReadableText(resolvedColors.hoverColor));

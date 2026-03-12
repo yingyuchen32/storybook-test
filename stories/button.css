@@ -12,10 +12,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 2px solid var(--button-color, var(--base-text-color, #272727));
+  border: 2px solid var(--button-border-color, var(--base-text-color, #272727));
   border-radius: 0;
   background: var(--button-background-color, #ffffff);
-  color: var(--button-color, var(--base-text-color, #272727));
+  color: var(--button-text-color, var(--base-text-color, #272727));
   font-family: "Noto Sans TC";
   font-size: var(--font-size-base, 16px);
   font-style: normal;
@@ -34,8 +34,8 @@
 
 .storybook-button[data-hovered="true"],
 .storybook-button:not(:disabled):hover {
-  background: var(--button-hover-background-color, var(--button-color, #272727));
-  border-color: var(--button-hover-background-color, var(--button-color, #272727));
+  background: var(--button-hover-background-color, var(--button-border-color, #272727));
+  border-color: var(--button-hover-background-color, var(--button-border-color, #272727));
   color: var(--button-hover-color, #ffffff);
 }
 
