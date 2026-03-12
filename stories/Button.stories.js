@@ -2,8 +2,11 @@ import { fn } from 'storybook/test';
 
 import { createButton } from './Button';
 
-const designParameters = (...designs) => ({
-  design: designs,
+const designParameters = (url) => ({
+  design: {
+    type: 'figma',
+    url,
+  },
 });
 
 export default {
@@ -13,7 +16,11 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      table: { disable: true },
+      description: 'Button text content.',
+      table: {
+        defaultValue: { summary: '展開更多' },
+        type: { summary: 'string' },
+      },
     },
     onClick: {
       action: 'onClick',
@@ -43,6 +50,14 @@ export default {
         type: { summary: 'color' },
       },
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the button interaction state.',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
+    },
     props: {
       control: 'object',
       description: 'Additional attributes to apply to the button element.',
@@ -69,6 +84,7 @@ export default {
     color: '#d60c18',
     hoverColor: '',
     bgColor: '',
+    disabled: false,
     props: {},
     style: '',
     hovered: false,
@@ -76,60 +92,13 @@ export default {
   },
 };
 
-export const Outline = {
+export const Solid = {
   args: {
     color: '#272727',
+    disabled: false,
     props: {},
   },
   parameters: designParameters(
-    {
-      name: 'Black',
-      type: 'figma',
-      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-4',
-    },
-    {
-      name: 'Red',
-      type: 'figma',
-      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=36-103&t=tZGs67Qdi1RDN1pn-4',
-    }
-  ),
-};
-
-export const Hover = {
-  args: {
-    color: '#272727',
-    hovered: true,
-    props: {},
-  },
-  parameters: designParameters(
-    {
-      name: 'Black',
-      type: 'figma',
-      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1174&t=tZGs67Qdi1RDN1pn-4',
-    },
-    {
-      name: 'Red',
-      type: 'figma',
-      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1176&t=tZGs67Qdi1RDN1pn-4',
-    }
-  ),
-};
-
-export const Disabled = {
-  args: {
-    color: '#272727',
-    props: { disabled: true },
-  },
-  parameters: designParameters(
-    {
-      name: 'Black',
-      type: 'figma',
-      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9949&t=tZGs67Qdi1RDN1pn-4',
-    },
-    {
-      name: 'Red',
-      type: 'figma',
-      url: 'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9953&t=tZGs67Qdi1RDN1pn-4',
-    }
+    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-4'
   ),
 };

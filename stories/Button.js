@@ -141,6 +141,7 @@ export const createButton = ({
   color = '#d60c18',
   hoverColor,
   bgColor,
+  disabled = false,
   props = {},
   style = '',
   hovered = false,
@@ -159,6 +160,7 @@ export const createButton = ({
   btn.innerText = label;
   btn.dataset.hovered = hovered ? 'true' : 'false';
   btn.className = 'storybook-button';
+  btn.disabled = disabled;
 
   btn.style.setProperty('--button-border-color', resolvedColors.borderColor);
   btn.style.setProperty('--button-text-color', resolvedColors.textColor);
@@ -173,7 +175,7 @@ export const createButton = ({
     btn.style.cssText += style;
   }
 
-  applyProps(btn, props);
+  applyProps(btn, { ...props, disabled: props.disabled ?? disabled });
 
   if (typeof onClick === 'function') {
     btn.addEventListener('click', onClick);
