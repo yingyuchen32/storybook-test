@@ -1,30 +1,110 @@
+:root {
+  --space-3xs: 6px;
+  --space-lg: 20px;
+
+  --font-size-base: 16px;
+  --font-size-4xl: 28px;
+  --font-weight-normal: 400;
+
+  --color-base-primary: #ffffff;
+  --base-text-color: #272727;
+  --color-base-text: #272727;
+  --color-base-theme-primary: #d60c18;
+  --color-grey-2: #dedede;
+  --color-grey-5: #565656;
+  --color-grey-11: #000000;
+}
+
 .storybook-button {
-  display: inline-block;
+  display: inline-flex;
+  padding: var(--space-3xs, 6px) var(--space-lg, 20px);
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  border: 0;
-  border-radius: 3em;
-  font-weight: 700;
-  line-height: 1;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: 2px solid;
+  border-radius: 0;
+  background: var(--color-base-primary, #ffffff);
+  color: var(--base-text-color, #272727);
+  font-family: "Noto Sans TC";
+  font-size: var(--font-size-base, 16px);
+  font-style: normal;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: normal;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
 }
-.storybook-button--primary {
-  background-color: #555ab9;
-  color: white;
+
+.storybook-button:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 4px;
 }
-.storybook-button--secondary {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  background-color: transparent;
-  color: #333;
+
+.storybook-button--neutral {
+  border-color: var(--color-base-text, #272727);
+  color: var(--color-base-text, #272727);
 }
-.storybook-button--small {
-  padding: 10px 16px;
-  font-size: 12px;
+
+.storybook-button--neutral[data-hovered="true"] {
+  background: var(--color-grey-11, #000000);
+  border-color: var(--color-grey-11, #000000);
+  color: var(--color-base-primary, #ffffff);
 }
-.storybook-button--medium {
-  padding: 11px 20px;
-  font-size: 14px;
+
+.storybook-button--danger {
+  border-color: var(--color-base-theme-primary, #d60c18);
+  color: var(--color-base-theme-primary, #d60c18);
 }
-.storybook-button--large {
-  padding: 12px 24px;
-  font-size: 16px;
+
+.storybook-button--danger[data-hovered="true"] {
+  background: var(--color-base-theme-primary, #d60c18);
+  border-color: var(--color-base-theme-primary, #d60c18);
+  color: var(--color-base-primary, #ffffff);
+}
+
+.storybook-button:disabled,
+.storybook-button[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.storybook-button--neutral:disabled,
+.storybook-button--neutral[disabled] {
+  border-color: var(--color-grey-2, #dedede);
+  background: var(--color-base-primary, #ffffff);
+  color: var(--color-grey-2, #dedede);
+}
+
+.storybook-button--neutral[data-hovered="true"]:disabled,
+.storybook-button--neutral[data-hovered="true"][disabled] {
+  border-color: var(--color-grey-2, #dedede);
+  background: var(--color-grey-2, #dedede);
+  color: var(--color-base-primary, #ffffff);
+}
+
+.storybook-button--danger:disabled,
+.storybook-button--danger[disabled] {
+  border-color: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 35%, var(--color-base-primary, #ffffff));
+  background: var(--color-base-primary, #ffffff);
+  color: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 35%, var(--color-base-primary, #ffffff));
+}
+
+.storybook-button--danger[data-hovered="true"]:disabled,
+.storybook-button--danger[data-hovered="true"][disabled] {
+  border-color: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 35%, var(--color-base-primary, #ffffff));
+  background: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 18%, var(--color-base-primary, #ffffff));
+  color: var(--color-base-primary, #ffffff);
+}
+
+.storybook-button--neutral.storybook-button--outline:not(:disabled):hover {
+  background: var(--color-grey-11, #000000);
+  border-color: var(--color-grey-11, #000000);
+  color: var(--color-base-primary, #ffffff);
+}
+
+.storybook-button--danger.storybook-button--outline:not(:disabled):hover {
+  background: var(--color-base-theme-primary, #d60c18);
+  border-color: var(--color-base-theme-primary, #d60c18);
+  color: var(--color-base-primary, #ffffff);
 }

@@ -2,53 +2,108 @@ import { fn } from 'storybook/test';
 
 import { createButton } from './Button';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+const figmaUrl =
+  import.meta.env?.STORYBOOK_BUTTON_FIGMA_URL ??
+  'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-1';
+
 export default {
   title: 'Example/Button',
   tags: ['autodocs'],
-  render: ({ label, ...args }) => {
-    // You can either use a function to create DOM elements or use a plain html string!
-    // return `<div>${label}</div>`;
-    return createButton({ label, ...args });
-  },
+  render: (args) => createButton(args),
   argTypes: {
-    backgroundColor: { control: 'color' },
     label: { control: 'text' },
     onClick: { action: 'onClick' },
-    primary: { control: 'boolean' },
-    size: {
+    tone: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['neutral', 'danger'],
+    },
+    disabled: { control: 'boolean' },
+    hovered: { control: 'boolean' },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: figmaUrl,
     },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
-  args: { onClick: fn() },
-};
-
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
   args: {
-    primary: true,
-    label: 'Button',
+    label: '展開更多',
+    tone: 'neutral',
+    disabled: false,
+    hovered: false,
+    onClick: fn(),
   },
 };
 
-export const Secondary = {
+export const NeutralOutline = {
   args: {
-    label: 'Button',
+    tone: 'neutral',
   },
 };
 
-export const Large = {
+export const NeutralHover = {
   args: {
-    size: 'large',
-    label: 'Button',
+    tone: 'neutral',
+    hovered: true,
   },
 };
 
-export const Small = {
+export const NeutralDisabled = {
   args: {
-    size: 'small',
-    label: 'Button',
+    tone: 'neutral',
+    disabled: true,
+  },
+};
+
+export const DangerOutline = {
+  args: {
+    tone: 'danger',
+  },
+};
+
+export const DangerHover = {
+  args: {
+    tone: 'danger',
+    hovered: true,
+  },
+};
+
+export const DangerDisabled = {
+  args: {
+    tone: 'danger',
+    disabled: true,
+  },
+};
+
+export const ReferenceRow = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => {
+    const container = document.createElement('div');
+    container.style.display = 'flex';
+    container.style.flexWrap = 'wrap';
+    container.style.gap = '40px';
+    container.style.alignItems = 'center';
+    container.style.padding = '24px 0';
+
+    [
+      { tone: 'neutral' },
+      { tone: 'neutral', hovered: true },
+      { tone: 'neutral', disabled: true },
+      { tone: 'danger' },
+      { tone: 'danger', hovered: true },
+      { tone: 'danger', disabled: true },
+    ].forEach((args) => {
+      container.appendChild(
+        createButton({
+          label: '展開更多',
+          onClick: fn(),
+          ...args,
+        })
+      );
+    });
+
+    return container;
   },
 };

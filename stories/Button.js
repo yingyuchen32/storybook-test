@@ -1,21 +1,27 @@
 import './button.css';
 
 export const createButton = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
+  tone = 'neutral',
+  disabled = false,
+  hovered = false,
+  label = '展開更多',
   onClick,
 }) => {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.innerText = label;
-  btn.addEventListener('click', onClick);
+  btn.disabled = disabled;
+  btn.dataset.hovered = hovered ? 'true' : 'false';
 
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  btn.className = ['storybook-button', `storybook-button--${size}`, mode].join(' ');
+  if (typeof onClick === 'function') {
+    btn.addEventListener('click', onClick);
+  }
 
-  btn.style.backgroundColor = backgroundColor;
+  btn.className = [
+    'storybook-button',
+    `storybook-button--${tone}`,
+    'storybook-button--outline',
+  ].join(' ');
 
   return btn;
 };
