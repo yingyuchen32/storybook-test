@@ -1,0 +1,46 @@
+:root {
+  --input-border-color: #7b8a99;
+  --input-label-color: #272727;
+  --input-placeholder-color: #9f9f9f;
+  --input-background-color: #ffffff;
+  --input-font-size: 16px;
+}
+
+.storybook-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--input-color, var(--input-label-color, #272727));
+  font-family: "Noto Sans TC";
+}
+
+.storybook-input__label {
+  color: var(--input-color, var(--input-label-color, #272727));
+  font-size: var(--input-font-size, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.storybook-input__field {
+  min-width: 212px;
+  padding: 10px 14px;
+  border: 2px solid var(--input-color, var(--input-border-color, #7b8a99));
+  background: var(--input-background-color, #ffffff);
+  color: var(--input-color, var(--input-label-color, #272727));
+  font-family: "Noto Sans TC";
+  font-size: var(--input-font-size, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  box-sizing: border-box;
+}
+
+.storybook-input__field::placeholder {
+  color: var(--input-placeholder-color, #9f9f9f);
+}
+
+.storybook-input__field:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--input-color, #272727) 25%, white);
+  outline-offset: 2px;
+}
