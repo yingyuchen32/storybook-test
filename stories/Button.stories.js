@@ -2,16 +2,12 @@ import { fn } from 'storybook/test';
 
 import { createButton } from './Button';
 
-const figmaUrl =
-  import.meta.env?.STORYBOOK_BUTTON_FIGMA_URL ??
-  'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-89&t=tZGs67Qdi1RDN1pn-4';
-
-const designParameters = {
+const designParameters = (url) => ({
   design: {
     type: 'figma',
-    url: figmaUrl,
+    url,
   },
-};
+});
 
 export default {
   title: 'Example/Button',
@@ -22,64 +18,76 @@ export default {
     onClick: { action: 'onClick' },
     tone: {
       control: { type: 'select' },
-      options: ['neutral', 'danger'],
+      options: ['black', 'red'],
     },
     disabled: { control: 'boolean' },
     hovered: { control: 'boolean' },
   },
   args: {
     label: '展開更多',
-    tone: 'neutral',
+    tone: 'black',
     disabled: false,
     hovered: false,
     onClick: fn(),
   },
 };
 
-export const NeutralOutline = {
+export const BlackOutline = {
   args: {
-    tone: 'neutral',
+    tone: 'black',
   },
-  parameters: designParameters,
+  parameters: designParameters(
+    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=2-90&t=tZGs67Qdi1RDN1pn-4'
+  ),
 };
 
-export const NeutralHover = {
+export const BlackHover = {
   args: {
-    tone: 'neutral',
+    tone: 'black',
     hovered: true,
   },
-  parameters: designParameters,
+  parameters: designParameters(
+    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1174&t=tZGs67Qdi1RDN1pn-4'
+  ),
 };
 
-export const NeutralDisabled = {
+export const BlackDisabled = {
   args: {
-    tone: 'neutral',
+    tone: 'black',
     disabled: true,
   },
-  parameters: designParameters,
+  parameters: designParameters(
+    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9949&t=tZGs67Qdi1RDN1pn-4'
+  ),
 };
 
-export const DangerOutline = {
+export const RedOutline = {
   args: {
-    tone: 'danger',
+    tone: 'red',
   },
-  parameters: designParameters,
+  parameters: designParameters(
+    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=36-103&t=tZGs67Qdi1RDN1pn-4'
+  ),
 };
 
-export const DangerHover = {
+export const RedHover = {
   args: {
-    tone: 'danger',
+    tone: 'red',
     hovered: true,
   },
-  parameters: designParameters,
+  parameters: designParameters(
+    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=1320-1176&t=tZGs67Qdi1RDN1pn-4'
+  ),
 };
 
-export const DangerDisabled = {
+export const RedDisabled = {
   args: {
-    tone: 'danger',
+    tone: 'red',
     disabled: true,
   },
-  parameters: designParameters,
+  parameters: designParameters(
+    'https://www.figma.com/design/v1w2cEcSLTpNjMq9I7qv6M/Bulldog-UI-Style?node-id=4437-9953&t=tZGs67Qdi1RDN1pn-4'
+  ),
 };
 
 export const ReferenceRow = {
@@ -95,12 +103,12 @@ export const ReferenceRow = {
     container.style.padding = '24px 0';
 
     [
-      { tone: 'neutral' },
-      { tone: 'neutral', hovered: true },
-      { tone: 'neutral', disabled: true },
-      { tone: 'danger' },
-      { tone: 'danger', hovered: true },
-      { tone: 'danger', disabled: true },
+      { tone: 'black' },
+      { tone: 'black', hovered: true },
+      { tone: 'black', disabled: true },
+      { tone: 'red' },
+      { tone: 'red', hovered: true },
+      { tone: 'red', disabled: true },
     ].forEach((args) => {
       container.appendChild(
         createButton({

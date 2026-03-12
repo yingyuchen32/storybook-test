@@ -1,7 +1,7 @@
 import './button.css';
 
 export const createButton = ({
-  tone = 'neutral',
+  tone = 'black',
   disabled = false,
   hovered = false,
   label = '展開更多',

@@ -41,23 +41,23 @@
   outline-offset: 4px;
 }
 
-.storybook-button--neutral {
+.storybook-button--black {
   border-color: var(--color-base-text, #272727);
   color: var(--color-base-text, #272727);
 }
 
-.storybook-button--neutral[data-hovered="true"] {
+.storybook-button--black[data-hovered="true"] {
   background: var(--color-grey-11, #000000);
   border-color: var(--color-grey-11, #000000);
   color: var(--color-base-primary, #ffffff);
 }
 
-.storybook-button--danger {
+.storybook-button--red {
   border-color: var(--color-base-theme-primary, #d60c18);
   color: var(--color-base-theme-primary, #d60c18);
 }
 
-.storybook-button--danger[data-hovered="true"] {
+.storybook-button--red[data-hovered="true"] {
   background: var(--color-base-theme-primary, #d60c18);
   border-color: var(--color-base-theme-primary, #d60c18);
   color: var(--color-base-primary, #ffffff);
@@ -69,41 +69,41 @@
   pointer-events: none;
 }
 
-.storybook-button--neutral:disabled,
-.storybook-button--neutral[disabled] {
+.storybook-button--black:disabled,
+.storybook-button--black[disabled] {
   border-color: var(--color-grey-2, #dedede);
   background: var(--color-base-primary, #ffffff);
   color: var(--color-grey-2, #dedede);
 }
 
-.storybook-button--neutral[data-hovered="true"]:disabled,
-.storybook-button--neutral[data-hovered="true"][disabled] {
+.storybook-button--black[data-hovered="true"]:disabled,
+.storybook-button--black[data-hovered="true"][disabled] {
   border-color: var(--color-grey-2, #dedede);
   background: var(--color-grey-2, #dedede);
   color: var(--color-base-primary, #ffffff);
 }
 
-.storybook-button--danger:disabled,
-.storybook-button--danger[disabled] {
+.storybook-button--red:disabled,
+.storybook-button--red[disabled] {
   border-color: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 35%, var(--color-base-primary, #ffffff));
   background: var(--color-base-primary, #ffffff);
   color: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 35%, var(--color-base-primary, #ffffff));
 }
 
-.storybook-button--danger[data-hovered="true"]:disabled,
-.storybook-button--danger[data-hovered="true"][disabled] {
+.storybook-button--red[data-hovered="true"]:disabled,
+.storybook-button--red[data-hovered="true"][disabled] {
   border-color: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 35%, var(--color-base-primary, #ffffff));
   background: color-mix(in srgb, var(--color-base-theme-primary, #d60c18) 18%, var(--color-base-primary, #ffffff));
   color: var(--color-base-primary, #ffffff);
 }
 
-.storybook-button--neutral.storybook-button--outline:not(:disabled):hover {
+.storybook-button--black.storybook-button--outline:not(:disabled):hover {
   background: var(--color-grey-11, #000000);
   border-color: var(--color-grey-11, #000000);
   color: var(--color-base-primary, #ffffff);
 }
 
-.storybook-button--danger.storybook-button--outline:not(:disabled):hover {
+.storybook-button--red.storybook-button--outline:not(:disabled):hover {
   background: var(--color-base-theme-primary, #d60c18);
   border-color: var(--color-base-theme-primary, #d60c18);
   color: var(--color-base-primary, #ffffff);
