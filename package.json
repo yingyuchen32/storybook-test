@@ -19,8 +19,8 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook": "STORYBOOK_PROJECT_ROOT=$PWD storybook dev -p 6006",
+    "build-storybook": "STORYBOOK_PROJECT_ROOT=$PWD storybook build",
     "chromatic": "npx chromatic --project-token=chpt_ba9b65f49407807"
   },
   "repository": {
