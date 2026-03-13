@@ -11,7 +11,7 @@ export default {
       control: 'color',
       description: 'Input label, border, and text color.',
       table: {
-        defaultValue: { summary: 'black' },
+        defaultValue: { summary: 'var(--base-text-color, #272727)' },
         type: { summary: 'color' },
       },
     },
@@ -48,6 +48,14 @@ export default {
         type: { summary: 'string' },
       },
     },
+    placeholder: {
+      control: 'text',
+      description: 'Placeholder text shown inside the input.',
+      table: {
+        defaultValue: { summary: '' },
+        type: { summary: 'string' },
+      },
+    },
     bindFn: {
       control: false,
       description: 'Callback that receives the input DOM element.',
@@ -74,21 +82,21 @@ export default {
     },
   },
   args: {
-    color: 'black',
+    color: '#272727',
     props: {
       type: 'text',
-      placeholder: '輸入元件',
     },
     style: '',
     labelPosition: 'before',
     label: '名字',
+    placeholder: '輸入元件',
     bindFn: fn(),
   },
   parameters: {
     docs: {
       description: {
         component:
-          '輸入可以給顏色和事件管理。`label` 是輸入的標籤，`labelPosition` 指定標籤的位置，`bindFn` 給 input 的 DOM Element。',
+          '輸入可以給顏色和事件管理。`label` 是輸入的標籤，`labelPosition` 指定標籤的位置，`placeholder` 可以直接修改提示文字，`bindFn` 給 input 的 DOM Element。',
       },
       source: {
         code: `<Input

@@ -94,7 +94,7 @@
       normalizeHex(color) ||
       normalizeHex(hoverColor) ||
       (normalizedBgColor ? pickReadableText(normalizedBgColor) : null) ||
-      '#d60c18';
+      '#272727';
 
     return {
       borderColor: linkedColor,
@@ -116,7 +116,7 @@
     return nextProps;
   };
 
-  export let color = '#d60c18';
+  export let color = 'var(--base-text-color, #272727)';
   export let hoverColor = '';
   export let bgColor = '';
   export let disabled = false;

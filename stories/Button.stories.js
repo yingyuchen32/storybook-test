@@ -30,7 +30,7 @@ export default {
       control: 'color',
       description: 'Primary color source. Border and text use this value, and hover background falls back to it.',
       table: {
-        defaultValue: { summary: '#d60c18' },
+        defaultValue: { summary: 'var(--base-text-color, #272727)' },
         type: { summary: 'color' },
       },
     },
@@ -81,7 +81,7 @@ export default {
   },
   args: {
     label: '展開更多',
-    color: '#d60c18',
+    color: '#272727',
     hoverColor: '',
     bgColor: '',
     disabled: false,
