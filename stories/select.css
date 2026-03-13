@@ -1,0 +1,51 @@
+.storybook-select {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4xs, 8px);
+  color: var(--input-color, var(--base-text-color, #272727));
+  font-family: "Noto Sans TC";
+}
+
+.storybook-select__label {
+  color: var(--input-color, var(--base-text-color, #272727));
+  font-size: var(--font-size-base, 16px);
+  font-style: normal;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: normal;
+}
+
+.storybook-select__control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.storybook-select__field {
+  min-width: 84px;
+  padding: 8px 36px 8px 14px;
+  border: 1px solid var(--grey-6, #6B7780);
+  background: var(--input-background-color, #ffffff);
+  color: var(--input-color, var(--base-text-color, #272727));
+  font-family: "Noto Sans TC";
+  font-size: var(--font-size-base, 16px);
+  font-style: normal;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: normal;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.storybook-select__field:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--input-color, #272727) 25%, white);
+  outline-offset: 2px;
+}
+
+.storybook-select__caret {
+  position: absolute;
+  right: 12px;
+  color: var(--grey-6, #6B7780);
+  font-size: 12px;
+  line-height: 1;
+  pointer-events: none;
+}

@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as InputStories from './Input.stories';
+import * as SelectStories from './Select.stories';
+
+<Meta of={InputStories} />
+
+# Input
+
+輸入元件提供兩種常見狀態：`Basic` 與 `Select`。兩者共用相同的標籤位置、顏色與樣式設定方式，只是在輸入行為上不同。
+
+## Basic
+
+<Canvas of={InputStories.Basic} />
+
+<Controls of={InputStories.Basic} />
+
+輸入可以給顏色和事件管理。`label` 是輸入的標籤，`labelPosition` 指定標籤的位置，`placeholder` 可以直接修改提示文字，`bindFn` 給 input 的 DOM Element。
+
+```svelte
+<Input
+  props={{ type: 'text' }}
+  on:change={(evt) => {}}
+/>
+```
+
+## Select
+
+<Canvas of={SelectStories.Select} />
+
+<Controls of={SelectStories.Select} />
+
+Select 狀態延續相同的標籤與顏色設定，但把輸入欄位替換成下拉選單，適合固定選項的表單欄位。
+
+```svelte
+<Input
+  props={{ type: 'select' }}
+  on:change={(evt) => {}}
+>
+  <option value="郁欣">郁欣</option>
+  <option value="家玉">家玉</option>
+  <option value="英文">英文</option>
+  <option value="尼爾">尼爾</option>
+</Input>
+```

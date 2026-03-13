@@ -1,14 +1,14 @@
 import { fn } from 'storybook/test';
 
-import Input from './Input.svelte';
+import SelectComponent from './Select.svelte';
 
 export default {
   title: 'Example/Input',
-  component: Input,
+  component: SelectComponent,
   argTypes: {
     color: {
       control: 'color',
-      description: 'Input label, border, and text color.',
+      description: 'Select label, border, and text color.',
       table: {
         defaultValue: { summary: 'var(--base-text-color, #272727)' },
         type: { summary: 'color' },
@@ -16,7 +16,7 @@ export default {
     },
     props: {
       control: 'object',
-      description: 'Additional attributes applied to the input element.',
+      description: 'Additional attributes applied to the select element.',
       table: {
         defaultValue: { summary: '{}' },
         type: { summary: 'object' },
@@ -24,7 +24,7 @@ export default {
     },
     style: {
       control: 'text',
-      description: 'Inline CSS text appended to the input wrapper.',
+      description: 'Inline CSS text appended to the select wrapper.',
       table: {
         defaultValue: { summary: '' },
         type: { summary: 'string' },
@@ -33,7 +33,7 @@ export default {
     labelPosition: {
       control: { type: 'inline-radio' },
       options: ['before', 'after'],
-      description: 'Position of the label relative to the input.',
+      description: 'Position of the label relative to the select.',
       table: {
         defaultValue: { summary: 'before' },
         type: { summary: 'before / after' },
@@ -41,15 +41,7 @@ export default {
     },
     label: {
       control: 'text',
-      description: 'Input label text.',
-      table: {
-        defaultValue: { summary: '' },
-        type: { summary: 'string' },
-      },
-    },
-    placeholder: {
-      control: 'text',
-      description: 'Placeholder text shown inside the input.',
+      description: 'Select label text.',
       table: {
         defaultValue: { summary: '' },
         type: { summary: 'string' },
@@ -57,18 +49,18 @@ export default {
     },
     bindFn: {
       control: false,
-      description: 'Callback that receives the input DOM element.',
+      description: 'Callback that receives the select DOM element.',
       table: {
         defaultValue: { summary: '' },
         type: { summary: 'function' },
       },
     },
-    onChange: {
-      action: 'change',
+    options: {
+      control: 'object',
       table: { disable: true },
     },
-    onInput: {
-      action: 'input',
+    onChange: {
+      action: 'change',
       table: { disable: true },
     },
     onFocus: {
@@ -83,28 +75,39 @@ export default {
   args: {
     color: '#272727',
     props: {
-      type: 'text',
+      value: '郁欣',
     },
     style: '',
     labelPosition: 'before',
     label: '名字',
-    placeholder: '輸入元件',
     bindFn: fn(),
+    options: [
+      { value: '郁欣', label: '郁欣' },
+      { value: '家玉', label: '家玉' },
+      { value: '英文', label: '英文' },
+      { value: '尼爾', label: '尼爾' },
+    ],
   },
   parameters: {
     docs: {
       description: {
         component:
-          '輸入可以給顏色和事件管理。`label` 是輸入的標籤，`labelPosition` 指定標籤的位置，`placeholder` 可以直接修改提示文字，`bindFn` 給 input 的 DOM Element。',
+          '輸入可以給顏色和事件管理。`label` 是輸入的標籤，`labelPosition` 指定標籤的位置，`bindFn` 給 input 的 DOM Element。',
       },
       source: {
         code: `<Input
-  props={{ type: 'text' }}
+  props={{ type: 'select' }}
   on:change={(evt) => {}}
-/>`,
+>
+  <option value="郁欣">郁欣</option>
+  <option value="家玉">家玉</option>
+  <option value="英文">英文</option>
+  <option value="尼爾">尼爾</option>
+  ...
+</Input>`,
       },
     },
   },
 };
 
-export const Basic = {};
+export const Select = {};
