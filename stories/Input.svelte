@@ -20,7 +20,7 @@
   export let color = 'var(--base-text-color, #272727)';
   export let props = {};
   export let style = '';
-  export let labelPosition = 'before';
+  export let labelPosition = 'left';
   export let label = '';
   export let placeholder = '';
   export let bindFn = undefined;
@@ -28,7 +28,9 @@
   let inputElement;
 
   $: resolvedColor = color || 'var(--base-text-color, #272727)';
-  $: wrapperClassName = ['storybook-input', props.class, props.className].filter(Boolean).join(' ');
+  $: wrapperClassName = ['storybook-input', `storybook-input--${labelPosition}`, props.class, props.className]
+    .filter(Boolean)
+    .join(' ');
   $: wrapperStyle = [`--input-color: ${resolvedColor}`, style].filter(Boolean).join('; ');
   $: inputProps = sanitizeProps(props);
   $: inputId = props.id || `storybook-input-${labelPosition}`;
@@ -44,7 +46,7 @@
 </script>
 
 <div class={wrapperClassName} style={wrapperStyle}>
-  {#if label && labelPosition === 'before'}
+  {#if label}
     <label class="storybook-input__label" for={inputId}>{label}</label>
   {/if}
 
@@ -60,8 +62,4 @@
     on:focus={(event) => forward('focus', event)}
     on:blur={(event) => forward('blur', event)}
   />
-
-  {#if label && labelPosition === 'after'}
-    <label class="storybook-input__label" for={inputId}>{label}</label>
-  {/if}
 </div>

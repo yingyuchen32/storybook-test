@@ -32,11 +32,11 @@ export default {
     },
     labelPosition: {
       control: { type: 'inline-radio' },
-      options: ['before', 'after'],
+      options: ['left', 'top'],
       description: 'Position of the label relative to the input.',
       table: {
-        defaultValue: { summary: 'before' },
-        type: { summary: 'before / after' },
+        defaultValue: { summary: 'left' },
+        type: { summary: 'left / top' },
       },
     },
     label: {
@@ -86,7 +86,7 @@ export default {
       type: 'text',
     },
     style: '',
-    labelPosition: 'before',
+    labelPosition: 'left',
     label: '名字',
     placeholder: '輸入元件',
     bindFn: fn(),
